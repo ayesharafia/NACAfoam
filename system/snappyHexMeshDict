@@ -55,8 +55,6 @@ castellatedMeshControls
     {
     }
 
-    // Keep mesh inside domain
-    insidePoint (2 0 0);
 }
 
 // ---------------------- SNAP ---------------------- //
