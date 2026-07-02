@@ -1,0 +1,21 @@
+# OpenFOAM generated files
+processor*/
+[1-9]*/
+[0-9][0-9]*/
+postProcessing/
+logs/
+*.log
+
+constant/polyMesh/
+constant/extendedFeatureEdgeMesh/
+
+*.OpenFOAM
+
+Make/linux*
+platforms/
+
+*.o
+*.dep
+
+*.vtk
+*.foam
