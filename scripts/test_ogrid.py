@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from geometry.naca4_generator import NACA4Generator
 from mesh.mesh_parameters import MeshParameters
 from mesh.ogrid_generator import OGridGenerator
+from mesh.blockmesh_writer import BlockMeshWriter
 def main():
 
     # Generate airfoil
@@ -26,7 +27,8 @@ def main():
         geometry,
         params
     ).generate()
-
+    writer = BlockMeshWriter(grid)
+    writer.write("system/blockMeshDict")
     plt.figure(figsize=(10, 10))
 
     # Radial lines
