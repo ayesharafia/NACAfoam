@@ -1,10 +1,3 @@
-/*--------------------------------*- C++ -*----------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version: 13                                     |
-|   \\  /    A nd           |                                                 |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
 
 FoamFile
 {
@@ -18,21 +11,23 @@ convertToMeters 1.0;
 
 vertices
 (
-    (-5 -10 -0.05)
-    (15 -10 -0.05)
-    (15  10 -0.05)
-    (-5  10 -0.05)
+    // 2D domain (thin in Z)
 
-    (-5 -10  0.05)
-    (15 -10  0.05)
-    (15  10  0.05)
-    (-5  10  0.05)
+    (-20 -20 0)
+    ( 20 -20 0)
+    ( 20  20 0)
+    (-20  20 0)
+
+    (-20 -20 0.01)
+    ( 20 -20 0.01)
+    ( 20  20 0.01)
+    (-20  20 0.01)
 );
 
 blocks
 (
     hex (0 1 2 3 4 5 6 7)
-    (400 200 1)
+    (200 200 1)
     simpleGrading (1 1 1)
 );
 
@@ -60,38 +55,22 @@ boundary
         );
     }
 
-    lowerWall
+    walls
     {
-        type symmetryPlane;
+        type wall;
         faces
         (
             (0 1 5 4)
-        );
-    }
-
-    upperWall
-    {
-        type symmetryPlane;
-        faces
-        (
             (3 7 6 2)
         );
     }
 
-    front
+    frontAndBack
     {
         type empty;
         faces
         (
-            (0 3 2 1)
-        );
-    }
-
-    back
-    {
-        type empty;
-        faces
-        (
+            (0 1 2 3)
             (4 5 6 7)
         );
     }
